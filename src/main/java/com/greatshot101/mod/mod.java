@@ -1,5 +1,6 @@
 package com.greatshot101.mod;
 
+import com.greatshot101.mod.item.Moditems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
@@ -26,9 +27,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import net.minecraftforge.eventbus.api.IEventBus;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(ExampleMod.MODID)
+@Mod(mod.MODID)
 public class mod
 {
     // Define mod id in a common place for everything to reference
@@ -40,7 +42,7 @@ public class mod
     {
         IEventBus modEventBus = context.getModEventBus();
 
-        ModItems.register(modEventBus);
+        Moditems.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
